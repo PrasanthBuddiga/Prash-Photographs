@@ -155,6 +155,8 @@ a{
     width: 300px;
     border-radius: 50%;
     margin: auto;
+    /* margin-top: 1rem; */
+    align-self: center;
 }
 #about .grid .profile-content{
     display: flex;
