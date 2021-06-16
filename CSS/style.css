@@ -39,6 +39,9 @@ body {
     opacity: 0.7;
     transform: translate(2px,2px);
 }
+p{
+    line-height: 1.4rem;
+}
 li{
     list-style: none;
     /* padding: 5px; */
@@ -47,15 +50,11 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
-.current
-{
-    color: var(--primarycolor);
-}
 .leadtext{
     color: var(--primarycolor);
 }
 .container {
-    max-width: 1200px;
+    max-width: 960px;
     margin:auto;
     /* text-align: center; */
 }
@@ -89,7 +88,6 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 #mainnav ul li a{
     color: white;
@@ -121,7 +119,7 @@ a{
 .content h1{
     position: relative;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
 }
 .content h1::before{
@@ -135,19 +133,21 @@ a{
 .content p{
     padding: 0rem 4rem;
     margin-top: 2rem;
+    line-height: 1.2rem;
 }
 /* #about{
     background: red;
 } */
 #about .grid{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
     grid-gap: 1rem;
     margin-bottom: 1rem;
     height: 500px;
 }
 .profile-content{
     text-align: center;
+    
 }
 .profile-img{
     background: url("../img/Profile.jpg") center center/cover;
@@ -155,10 +155,13 @@ a{
     width: 300px;
     border-radius: 50%;
     margin: auto;
+    
     /* margin-top: 1rem; */
     align-self: center;
+    transform:translateY(60px);
 }
 #about .grid .profile-content{
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -314,11 +317,12 @@ textarea {
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
+    /* flex:0 1  */
     
 }
 #imgflex img{
     max-height: 200px;
-    /* border-radius: 5px; */
+    flex:1 1 150px;
     margin: 5px;
     box-shadow:rgb(255,255,255,0.3) 0.2px 0.2px 10px;
     display: none;
@@ -337,33 +341,34 @@ textarea {
 #port #mobile:checked ~ #galleryhead label[for="mobile"]{ color: black;}
 #port #theme:checked ~ #galleryhead label[for="theme"]{ color: black;}
 #port #commercial:checked ~ #galleryhead label[for="commercial"]{ color: black;}
-/* .active{
-    height: 1200px;
-    width: 1200px;
-    z-index: 10001;
-} */
 #popup{
     position: fixed;
-    height: 90vh;
-    width: 90vw;
-    margin: auto;
-    /* margin-top: 5rem; */
+    height: 100vh;
+    width: 100vw;
     background: rgb(0,0,0,0.5);
     z-index: 100000;
-    top:2rem;
-    left: 5rem;
+    top:0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    /* display: ; */
     display: none;
 }
 #popup img{
-    height: 80%;
+    transform: scale(90%);
+    max-height: 650px;
     align-self: center;
-    position: relative;
+}
+#popup p{
+    /* color: white; */
+    background: rgb(0,0,0,0.5);
+    position: fixed;
+    bottom: 10%;
+    z-index:100001 ;
+    
+
 }
 
    
