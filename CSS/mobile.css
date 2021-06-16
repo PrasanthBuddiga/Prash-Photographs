@@ -21,12 +21,18 @@
 }
 
 .profile-img{
+    margin-top: 80px;
     height: 200px;
     width: 200px;
 }
 
+
+
 .content p{
     line-height: 1.2rem;
+}
+#port input{
+    margin-bottom: 25px;
 }
 #popup img{
     max-height: 768px;
@@ -36,8 +42,10 @@
     font-size: 0.7rem;
 }
 #social{
-    display: none;/* grid-template-columns: repeat(2,1fr);
-    position: sticky;
-    top:0;
-    left: 50%; */
+  display: none; 
+  /* */
+    /* left: 50%; */ 
+}
+#social a{
+color: white;
 }
