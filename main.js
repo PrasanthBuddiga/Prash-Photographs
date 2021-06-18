@@ -110,6 +110,7 @@ leftarrow.addEventListener('click',()=>{
 close.addEventListener('click',()=>{
 popdiv.setAttribute("style","display:none");
 imggal.setAttribute("style","filter:blur(0px)");
+blurr.forEach(i=> i.setAttribute("style","filter:blur(0px)"));
 });
 
 
