@@ -10,7 +10,8 @@ let mobimg=document.querySelectorAll('#imgflex .mobile');
 let themeimg=document.querySelectorAll('#imgflex .theme');
 let commimg=document.querySelectorAll('#imgflex .commercial');
 let popp=document.querySelector('#popup img');
-
+let blurr=document.querySelectorAll("#navbar,#contact,#about,#landing, .showcase, #footer, #social, #portfolio");
+// alert(contact.length);
 
  var travimgsrc= [];
 travimg.forEach(trav => travimgsrc.push(trav.getAttribute("src")));
@@ -28,8 +29,12 @@ image.forEach(pic => pic.addEventListener('click',()=>
     popp.setAttribute("src",pic.getAttribute("src"));
     popp.setAttribute("class",pic.getAttribute("class"));
     // alert(popp.getAttribute('class'));
+    
     popdiv.setAttribute("style","display:flex");
     imggal.setAttribute("style","filter:blur(5px)");
+    blurr.forEach(i=> i.setAttribute("style","filter:blur(5px)"));
+      //  blurr.setAttribute();
+    
   
 }));
 
