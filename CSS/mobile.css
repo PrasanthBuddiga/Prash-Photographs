@@ -13,6 +13,13 @@
     border-radius:0 0 50px 50px;
 
 }
+#landing{
+    object-fit: cover;
+}
+.content p{
+    padding: 0 1rem;
+}
+
 
 #mainnav{
     flex-direction: column;
@@ -48,13 +55,13 @@
 #social{
   /* display: none;  */
   transform: scale(0.7);
-  right: 0;
-  top:40%
+  right: 10px;
+  top:50%
   /* */
     /* left: 50%; */ 
 }
 #social a{
-color: white;
+color: var(--primarycolor);
 }
 .left{
     left: 5vw;
@@ -67,4 +74,5 @@ color: white;
 .close{
     top: 10%;
     right: 10%;
+    /* display: none; */
 }
