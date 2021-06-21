@@ -1,4 +1,4 @@
-
+let navbar=document.querySelector("#navbar")
 let rightarrow=document.querySelector('.right');
 let leftarrow=document.querySelector('.left');
 let imggal=document.querySelector('#portfolio')
@@ -10,7 +10,7 @@ let mobimg=document.querySelectorAll('#imgflex .mobile');
 let themeimg=document.querySelectorAll('#imgflex .theme');
 let commimg=document.querySelectorAll('#imgflex .commercial');
 let popp=document.querySelector('#popup img');
-let blurr=document.querySelectorAll("#navbar,#contact,#about,#landing, .showcase, #footer, #social, #portfolio");
+let blurr=document.querySelectorAll("#navbar,#contact,#about,#landing, .showcase, #footer, #social, #port");
 // alert(contact.length);
 
  var travimgsrc= [];
@@ -28,11 +28,17 @@ image.forEach(pic => pic.addEventListener('click',()=>
  
     popp.setAttribute("src",pic.getAttribute("src"));
     popp.setAttribute("class",pic.getAttribute("class"));
+
     // alert(popp.getAttribute('class'));
     
     popdiv.setAttribute("style","display:flex");
     imggal.setAttribute("style","filter:blur(5px)");
-    blurr.forEach(i=> i.setAttribute("style","filter:blur(5px)"));
+    // navbar.setAttribute("style","opacity:0.2");
+    blurr.forEach(i=> i.setAttribute("style","poiner-events:none"));
+    blurr.forEach(i=> i.setAttribute("style","opacity:0.1"));
+
+    
+
       //  blurr.setAttribute();
     
   
@@ -108,9 +114,11 @@ leftarrow.addEventListener('click',()=>{
  
 });
 close.addEventListener('click',()=>{
-popdiv.setAttribute("style","display:none");
-imggal.setAttribute("style","filter:blur(0px)");
-blurr.forEach(i=> i.setAttribute("style","filter:blur(0px)"));
+  popdiv.setAttribute("style","display:none");
+  imggal.setAttribute("style","filter:blur(0px)");
+  // blurr.forEach(i=> i.setAttribute("style","poiner-events:none"));
+  blurr.forEach(i=> i.setAttribute("style","opacity:1"));
+  
 });
 
 
