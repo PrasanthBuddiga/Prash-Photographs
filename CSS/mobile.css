@@ -13,6 +13,24 @@
     border-radius:0 0 50px 50px;
 
 }
+#overlay {
+    background:#333;
+    color: #f4f4f4;
+    height: 100vh;
+    font-family: 'Alex Brush', cursive;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    font-size: 2rem;
+    /* margin-top: -10px; */
+    display: grid;
+    place-items: center;
+    z-index: 99999999999;
+    /* transform: translateX(-100vw); */
+    animation: animate1 3s linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
 #landing{
     object-fit: cover;
 }
