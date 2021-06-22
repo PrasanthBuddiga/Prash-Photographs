@@ -14,22 +14,40 @@
 
 }
 #overlay {
-    background:#333;
+    background: black;;
     color: #f4f4f4;
     height: 100vh;
-    font-family: 'Alex Brush', cursive;
     position: fixed;
     top: 0;
     width: 100vw;
-    font-size: 2rem;
-    /* margin-top: -10px; */
+    font-size: 1.5rem;
+    z-index: 99999999999;
     display: grid;
     place-items: center;
-    z-index: 99999999999;
-    /* transform: translateX(-100vw); */
-    animation: animate1 3s linear;
+    animation: animate1 1s linear;
     animation-delay: 1s;
     animation-fill-mode: forwards;
+}
+#overlay p{
+    width: max-content;
+    /* position: relative; */
+}
+#overlay .line{
+    height: 3px;
+    background: #333;
+    width: 120px;
+    margin-top: -10px;
+    position: relative;
+}
+
+#overlay .line::after{
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background: var(--primarycolor);
+top: 0px;
+animation: animate2 1s 1 forwards;
 }
 #landing{
     object-fit: cover;
