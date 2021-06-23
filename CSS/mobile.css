@@ -59,9 +59,9 @@ animation: animate2 1s 1 forwards;
 
 #mainnav{
     flex-direction: column;
-    /* align-items: flex-start; */
-    justify-content: center;
-    align-content: center;
+    align-items: center;
+    /* justify-content: center;
+    align-content: center; */
 }
 
 .profile-content p{
