@@ -9,7 +9,7 @@
     box-shadow: rgb(0,0,0,0.5) 1px 1px 1px 1px;
 }
 #navbar{
-    background: rgb(0,0,0);
+    background:rgb(0,0,0);
     border-radius:0 0 50px 50px;
 
 }
@@ -59,7 +59,9 @@ animation: animate2 1s 1 forwards;
 
 #mainnav{
     flex-direction: column;
-    align-items: center;
+    /* align-items: flex-start; */
+    justify-content: center;
+    align-content: center;
 }
 
 .profile-content p{
@@ -112,3 +114,7 @@ color: var(--primarycolor);
     right: 10%;
     /* display: none; */
 }
+
+
+/* Hamburger */
+
