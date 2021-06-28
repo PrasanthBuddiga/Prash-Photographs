@@ -3,7 +3,7 @@
 }
 
 .container{
-    max-width: 360px;
+    max-width: 320px;
 }
 .btn{
     box-shadow: rgb(0,0,0,0.5) 1px 1px 1px 1px;
@@ -12,6 +12,20 @@
     background:rgb(0,0,0);
     border-radius:0 0 50px 50px;
 
+}
+.content h1{
+    font-size: 2.5rem;
+    padding-bottom:-5px ;
+
+}
+
+.content h1::before
+{
+    top:-1rem;
+}
+
+.content p{
+    margin-top: 1rem;
 }
 #overlay {
     background: black;;
@@ -49,14 +63,10 @@ background: var(--primarycolor);
 top: 0px;
 animation: animate2 1s 1 forwards;
 }
-#landing{
-    object-fit: cover;
-}
+
 .content p{
     padding: 0 1rem;
 }
-
-
 #mainnav{
     flex-direction: column;
     align-items: center;
