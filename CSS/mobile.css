@@ -24,6 +24,12 @@
     top:-1rem;
 }
 
+.imgcont{
+    margin:auto auto 10px auto ;
+    height: 200px;
+    width: 150px;
+    
+}
 .content p{
     margin-top: 1rem;
 }
