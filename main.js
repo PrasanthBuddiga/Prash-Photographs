@@ -5,10 +5,10 @@ let imggal=document.querySelector('#portfolio')
 let popdiv=document.querySelector('#popup');
 let image=document.querySelectorAll('#imgflex img');
 let close=document.querySelector('#popup .close');
-let travimg=document.querySelectorAll('#imgflex .landscapes');
-let mobimg=document.querySelectorAll('#imgflex .mobile');
-let themeimg=document.querySelectorAll('#imgflex .theme');
-let commimg=document.querySelectorAll('#imgflex .commercial');
+let travimg=document.querySelectorAll('#imgflex .landscapes img');
+let mobimg=document.querySelectorAll('#imgflex .mobile img');
+let themeimg=document.querySelectorAll('#imgflex .theme img');
+let commimg=document.querySelectorAll('#imgflex .commercial img');
 let popp=document.querySelector('#popup img');
 let blurr=document.querySelectorAll("#navbar,#contact,#about,#landing, .showcase, #footer, #social, #port");
 // alert(contact.length);
