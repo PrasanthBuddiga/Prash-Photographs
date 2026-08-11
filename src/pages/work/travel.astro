@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Gallery from '../../components/Gallery.astro';
+
+const images = [
+	{ src: '/images/travel/trav1.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav2.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav3.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav4.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav5.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav6.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav7.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav8.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav9.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav10.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav11.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav12.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav13.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav14.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav15.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav16.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav17.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav18.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav19.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav20.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav21.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav22.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav23.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav24.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav25.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/trav26.jpg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00316.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00227_1.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00433.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00293.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00315.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00323_2.jpeg', alt: 'Travel photograph' },
+	{ src: '/images/travel/PRA00495.jpeg', alt: 'Travel photograph' },
+];
+---
+
+<BaseLayout title="Travel & Street — Prash Photographs">
+	<Header />
+	<main id="main">
+		<section class="mx-auto max-w-7xl px-8 pb-8 pt-32 md:px-16">
+			<h1 class="font-display text-4xl font-bold text-white md:text-6xl">Travel &amp; Street</h1>
+			<p class="mt-4 max-w-xl text-white/70">Moments from the road — candid, unscripted, human.</p>
+		</section>
+		<Gallery images={images} folder="travel" />
+	</main>
+	<Footer />
+</BaseLayout>

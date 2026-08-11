@@ -1,0 +1,129 @@
+<div
+	id="lightbox"
+	class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm transition-opacity duration-300"
+>
+	<button
+		id="lightbox-close"
+		aria-label="Close"
+		class="absolute right-6 top-6 text-3xl font-light text-white/80 transition-colors hover:text-white"
+	>
+		&times;
+	</button>
+
+	<button
+		id="lightbox-prev"
+		aria-label="Previous photo"
+		class="absolute left-4 top-1/2 -translate-y-1/2 text-4xl font-light text-white/70 transition-colors hover:text-white md:left-8"
+	>
+		&#8249;
+	</button>
+
+	<img
+		id="lightbox-image"
+		src=""
+		alt=""
+		class="max-h-[90vh] max-w-[90vw] object-contain transition-opacity duration-200"
+	/>
+
+	<button
+		id="lightbox-next"
+		aria-label="Next photo"
+		class="absolute right-4 top-1/2 -translate-y-1/2 text-4xl font-light text-white/70 transition-colors hover:text-white md:right-8"
+	>
+		&#8250;
+	</button>
+
+	<div
+		id="lightbox-counter"
+		class="font-display absolute bottom-6 left-1/2 -translate-x-1/2 text-sm tracking-widest text-white/60"
+	>
+	</div>
+</div>
+
+<script>
+	let currentImages: { src: string; alt: string }[] = [];
+	let currentIndex = 0;
+
+	const lightbox = document.getElementById('lightbox');
+	const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+	const counter = document.getElementById('lightbox-counter');
+
+	function openLightbox(images: { src: string; alt: string }[], index: number) {
+		currentImages = images;
+		currentIndex = index;
+		updateImage();
+		lightbox?.classList.remove('hidden');
+		lightbox?.classList.add('flex');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		lightbox?.classList.add('hidden');
+		lightbox?.classList.remove('flex');
+		document.body.style.overflow = '';
+	}
+
+	function updateImage() {
+		const img = currentImages[currentIndex];
+		if (!img || !lightboxImage) return;
+		lightboxImage.style.opacity = '0';
+		setTimeout(() => {
+			lightboxImage.src = img.src;
+			lightboxImage.alt = img.alt;
+			lightboxImage.style.opacity = '1';
+		}, 100);
+		if (counter) {
+			counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+		}
+	}
+
+	function showPrev() {
+		currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+		updateImage();
+	}
+
+	function showNext() {
+		currentIndex = (currentIndex + 1) % currentImages.length;
+		updateImage();
+	}
+
+	document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+	document.getElementById('lightbox-prev')?.addEventListener('click', showPrev);
+	document.getElementById('lightbox-next')?.addEventListener('click', showNext);
+
+	document.addEventListener('keydown', (e) => {
+		if (lightbox?.classList.contains('hidden')) return;
+		if (e.key === 'Escape') closeLightbox();
+		if (e.key === 'ArrowLeft') showPrev();
+		if (e.key === 'ArrowRight') showNext();
+	});
+
+	lightbox?.addEventListener('click', (e) => {
+		if (e.target === lightbox) closeLightbox();
+	});
+
+	// Wire up every gallery's items on the page
+	document.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('[data-gallery]').forEach((section) => {
+			const folder = section.getAttribute('data-gallery');
+			const dataScript = document.getElementById(`gallery-data-${folder}`);
+			if (!dataScript) return;
+			const images = JSON.parse(dataScript.textContent || '[]');
+
+			section.querySelectorAll('[data-lightbox-trigger]').forEach((item) => {
+				item.addEventListener('click', () => {
+					const index = parseInt(item.getAttribute('data-index') || '0', 10);
+					openLightbox(images, index);
+				});
+				item.addEventListener('keydown', (e: Event) => {
+					const ke = e as KeyboardEvent;
+					if (ke.key === 'Enter' || ke.key === ' ') {
+						ke.preventDefault();
+						const index = parseInt(item.getAttribute('data-index') || '0', 10);
+						openLightbox(images, index);
+					}
+				});
+			});
+		});
+	});
+</script>

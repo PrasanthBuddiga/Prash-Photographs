@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const categories = [
+	{ href: '/work/travel', label: 'Travel & Street', desc: 'Candid, unscripted, human' },
+	{ href: '/work/conceptual', label: 'Conceptual', desc: 'Styled, story-driven shoots' },
+	{ href: '/work/portraits', label: 'Weddings & Portraits', desc: 'Weddings, pre-wedding, maternity' },
+];
+---
+
+<BaseLayout title="Work — Prash Photographs">
+	<Header />
+	<main id="main">
+		<section class="mx-auto max-w-7xl px-8 pt-32 pb-24 md:px-16">
+			<h1 class="font-display text-4xl font-bold text-white md:text-6xl">Work</h1>
+			<div class="mt-12 grid gap-8 md:grid-cols-3">
+				{categories.map(({ href, label, desc }) => (
+					<a href={href} class="group block border border-white/10 p-8 transition-colors hover:border-white/30">
+						<h2 class="font-display text-2xl text-white">{label}</h2>
+						<p class="mt-2 text-sm text-white/60">{desc}</p>
+					</a>
+				))}
+			</div>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>

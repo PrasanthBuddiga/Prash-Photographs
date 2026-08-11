@@ -1,0 +1,81 @@
+---
+const images = [
+	{ src: '/images/hero-marquee/PRA00433.jpeg', alt: 'Landscape photograph' },
+	{ src: '/images/hero-marquee/PRA00323_2.jpeg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/PRA00316.jpeg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/PRA00495.jpeg', alt: 'Landscape photograph' },
+	{ src: '/images/hero-marquee/PRA00227_1.jpeg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/theme19.jpg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/PRA00293.jpeg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/theme3.jpg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/trav5.jpg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/trav7.jpg', alt: 'Portrait photograph' },
+	{ src: '/images/hero-marquee/trav18.jpg', alt: 'Portrait photograph' },
+];
+---
+
+<section class="marquee group overflow-hidden" aria-label="Featured photographs">
+	<div class="marquee-track">
+		<div class="marquee-set">
+			{images.map(({ src, alt }) => (
+				<div class="marquee-item">
+					<img src={src} alt={alt} loading="lazy" decoding="async" />
+				</div>
+			))}
+		</div>
+		<div class="marquee-set" aria-hidden="true">
+			{images.map(({ src, alt }) => (
+				<div class="marquee-item">
+					<img src={src} alt="" loading="lazy" decoding="async" />
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.marquee-track {
+		display: flex;
+		width: max-content;
+		animation: marquee-scroll 55s linear infinite;
+	}
+
+	.group:hover .marquee-track {
+		animation-play-state: paused;
+	}
+
+	.marquee-set {
+		display: flex;
+		height: 70vh;
+		gap: 0.75rem;
+		padding-right: 0.75rem;
+	}
+
+	@media (min-width: 768px) {
+		.marquee-set {
+			height: 80vh;
+		}
+	}
+
+	.marquee-item {
+		height: 100%;
+		flex-shrink: 0;
+		overflow: hidden;
+	}
+
+	.marquee-item img {
+		display: block;
+		height: 100%;
+		width: auto;
+		object-fit: cover;
+	}
+
+	@keyframes marquee-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+</style>
