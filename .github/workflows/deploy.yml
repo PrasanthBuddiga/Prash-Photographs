@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # Change this to your working branch name if you want to preview the branch!
+    branches: [Add-Images] # Change this to your working branch name if you want to preview the branch!
   workflow_dispatch:
 
 permissions:
