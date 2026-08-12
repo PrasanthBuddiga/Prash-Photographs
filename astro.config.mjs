@@ -17,5 +17,10 @@ export default defineConfig({
 			styles: ['normal'],
 			fallbacks: ['serif'],
 		},
+		{
+			provider: fontProviders.google(),
+			name: 'Mrs Saint Delafield',
+			cssVariable: '--font-signature-script',
+		},
 	],
 });

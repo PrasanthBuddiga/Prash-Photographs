@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Contact — Prash Photographs">
+	<Header />
+	<main id="main">
+		<section class="mx-auto max-w-7xl px-8 pb-24 pt-32 md:px-16">
+			<h1 class="font-display text-4xl font-bold text-white md:text-5xl">Get in Touch</h1>
+			<p class="mt-4 max-w-xl text-white/70">
+				Have a shoot in mind? Tell me a bit about it and I'll get back to you.
+			</p>
+
+<form
+	name="contact"
+	method="POST"
+	data-netlify="true"
+	netlify-honeypot="bot-field"
+	class="mt-12 grid max-w-2xl gap-6"
+>
+	<input type="hidden" name="form-name" value="contact" />
+	<p class="hidden">
+		<label>Don't fill this out: <input name="bot-field" /></label>
+	</p>
+
+	<div>
+		<label for="name" class="mb-2 block text-xs uppercase tracking-widest text-white/50">
+			Name
+		</label>
+		<input
+			type="text"
+			id="name"
+			name="name"
+			required
+			class="w-full border-0 border-b-2 border-white/30 bg-transparent py-3 text-white outline-none transition-colors focus:border-white"
+		/>
+	</div>
+
+	<div>
+		<label for="email" class="mb-2 block text-xs uppercase tracking-widest text-white/50">
+			Email
+		</label>
+		<input
+			type="email"
+			id="email"
+			name="email"
+			required
+			class="w-full border-0 border-b-2 border-white/30 bg-transparent py-3 text-white outline-none transition-colors focus:border-white"
+		/>
+	</div>
+
+	<div>
+		<label for="message" class="mb-2 block text-xs uppercase tracking-widest text-white/50">
+			Message
+		</label>
+		<textarea
+			id="message"
+			name="message"
+			rows="5"
+			required
+			class="w-full border-0 border-b-2 border-white/30 bg-transparent py-3 text-white outline-none transition-colors focus:border-white"
+		></textarea>
+	</div>
+
+	<button
+	type="submit"
+	class="mt-4 w-fit justify-self-start cursor-pointer border border-white/20 px-8 py-3 text-sm uppercase tracking-widest text-white transition-colors hover:border-white hover:bg-white hover:text-black"
+>
+		Send Message
+	</button>
+</form>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>

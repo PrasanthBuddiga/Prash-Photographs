@@ -1,11 +1,5 @@
 ---
 const year = new Date().getFullYear();
-const navLinks = [
-	{ href: '/', label: 'Home' },
-	{ href: '/work', label: 'Work' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
-];
 const socialLinks = [
 	{ href: 'https://www.instagram.com/prash_photographs', label: 'Instagram', target: '_blank', rel: 'noopener noreferrer' },
 	{ href: 'mailto:your-email@domain.com', label: 'Email' },
@@ -13,10 +7,9 @@ const socialLinks = [
 ---
 
 <footer class="border-t border-white/10 bg-[#0a0a0a] px-8 py-16 md:px-16">
-	<div class="mx-auto max-w-7xl grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-16">
-		
-		<!-- Left Side: Clean Branding & Dynamic Year -->
-		<div class="sm:col-span-2">
+	<div class="mx-auto max-w-7xl flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+
+		<div>
 			<p class="font-display text-base tracking-wide text-white">
 				Prash
 			</p>
@@ -25,22 +18,8 @@ const socialLinks = [
 			</p>
 		</div>
 
-		<!-- Navigation Links Loop -->
-		<nav aria-label="Footer Navigation">
-			<p class="text-xs font-medium uppercase tracking-wider text-white/30 mb-4">Explore</p>
-			<ul class="flex flex-col gap-3 list-none p-0 m-0">
-				{navLinks.map(({ href, label }) => (
-					<li>
-						<a href={href} class="footer-link">{label}</a>
-					</li>
-				))}
-			</ul>
-		</nav>
-
-		<!-- Social Links Loop -->
 		<nav aria-label="Social Links">
-			<p class="text-xs font-medium uppercase tracking-wider text-white/30 mb-4">Connect</p>
-			<ul class="flex flex-col gap-3 list-none p-0 m-0">
+			<ul class="flex gap-6 list-none p-0 m-0">
 				{socialLinks.map(({ href, label, target, rel }) => (
 					<li>
 						<a href={href} class="footer-link" target={target} rel={rel}>{label}</a>
@@ -48,7 +27,7 @@ const socialLinks = [
 				))}
 			</ul>
 		</nav>
-		
+
 	</div>
 </footer>
 

@@ -1,0 +1,30 @@
+---
+import * as prismic from '@prismicio/client';
+import { client } from '../../lib/prismic';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Gallery from '../../components/Gallery.astro';
+
+const photos = await client.getAllByType('gallery_photo', {
+	filters: [prismic.filter.at('my.gallery_photo.category', 'travel')],
+	orderings: [{ field: 'my.gallery_photo.sort_order', direction: 'asc' }],
+});
+
+const images = photos.map((photo) => ({
+	src: photo.data.image.url,
+	alt: photo.data.image.alt || photo.data.alt_text || 'Travel photograph',
+}));
+---
+
+<BaseLayout title="Travel & Street — Prash Photographs">
+	<Header />
+	<main id="main">
+		<section class="mx-auto max-w-7xl px-8 pb-8 pt-32 md:px-16">
+			<h1 class="font-display text-4xl font-bold text-white md:text-6xl">Travel &amp; Street</h1>
+			<p class="mt-4 max-w-xl text-white/70">Moments from the road — candid, unscripted, human.</p>
+		</section>
+		<Gallery images={images} folder="travel" />
+	</main>
+	<Footer />
+</BaseLayout>
