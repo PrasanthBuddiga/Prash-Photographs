@@ -1,0 +1,40 @@
+---
+import GalleryItem from './GalleryItem.astro';
+
+interface GalleryImage {
+	src: string;
+	alt: string;
+}
+
+interface Props {
+	images: GalleryImage[];
+	folder: string;
+}
+
+const { images, folder } = Astro.props as Props;
+
+function getSpanClass(index: number): string {
+	const pattern = [
+		'md:col-span-2 md:row-span-2',
+		'',
+		'',
+		'md:row-span-2',
+		'',
+		'md:col-span-2',
+		'',
+	];
+	return pattern[index % pattern.length];
+}
+---
+
+<section class="mx-auto max-w-7xl px-8 py-16 md:px-16" data-gallery={folder}>
+	<script type="application/json" id={`gallery-data-${folder}`} set:html={JSON.stringify(images)} />
+
+	<div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[220px]">
+		{images.map((image, index) => (
+			<div class={`relative h-full w-full ${getSpanClass(index)}`}>
+				<GalleryItem src={image.src} alt={image.alt} index={index} />
+			</div>
+		))}
+	</div>
+</section>

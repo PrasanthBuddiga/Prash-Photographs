@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About — Prash Photographs">
+	<Header />
+	<main id="main">
+		<section class="mx-auto max-w-7xl px-8 pb-24 pt-32 md:px-16">
+			<div class="grid gap-12 md:grid-cols-2 md:gap-20">
+				<div>
+					<img
+						src="public/images/profile.jpg"
+						alt="Prash, photographer"
+						class="w-full rounded-xl object-cover"
+					/>
+				</div>
+				<div class="flex flex-col justify-center">
+					<h1 class="font-display text-4xl font-bold text-white md:text-5xl">About</h1>
+					<p class="mt-6 text-lg leading-relaxed text-white/70">
+						I'm Prash, a photographer drawn to unscripted moments — the kind
+						that happen on the street, on the road, or in the quiet space
+						between poses at a wedding.
+					</p>
+					<p class="mt-4 text-lg leading-relaxed text-white/70">
+						My work spans travel and street photography, conceptual shoots
+						built around a single idea, and weddings, pre-wedding, and
+						maternity stories.
+					</p>
+					<p class="mt-4 text-lg leading-relaxed text-white/70">
+						Based in [your city] — available for shoots locally and while
+						traveling.
+					</p>
+
+					
+						<a href="/contact"
+						class="mt-8 inline-block w-fit border border-white/20 px-8 py-3 text-sm uppercase tracking-widest text-white transition-colors hover:border-white hover:bg-white hover:text-black"
+					>
+						Get in touch
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</BaseLayout>

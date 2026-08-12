@@ -1,0 +1,82 @@
+---
+interface Props {
+	title?: string;
+	tagline?: string;
+	image?: string;
+}
+
+const {
+	title = 'Prash Photographs',
+	tagline = 'Capturing light, emotion, and story',
+	image = '/images/hero.jpg',
+} = Astro.props;
+---
+
+<section class="relative h-screen overflow-hidden">
+	<img
+		src={image}
+		alt=""
+		class="absolute inset-0 h-full w-full object-cover bg-neutral-900"
+		aria-hidden="true"
+	/>
+	<div
+		class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"
+		aria-hidden="true"
+	></div>
+
+	<div class="relative z-10 flex h-full items-end px-8 pb-28 md:px-16 md:pb-32">
+		<div class="max-w-4xl">
+			<h1 class="hero-heading font-display text-6xl font-bold leading-none tracking-tight md:text-8xl">
+				{title}
+			</h1>
+			<p class="hero-subtitle mt-4 max-w-xl text-base font-light tracking-wide text-white/70 md:text-lg">
+				{tagline}
+			</p>
+		</div>
+	</div>
+
+	<a
+		href="#main"
+		class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+		aria-label="Scroll down"
+	>
+		<span class="scroll-indicator block h-12 w-px bg-gradient-to-b from-transparent to-white/60"></span>
+	</a>
+</section>
+
+<style>
+	@keyframes hero-fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(1.5rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes scroll-bounce {
+		0%,
+		100% {
+			opacity: 0.35;
+			transform: translateY(0);
+		}
+		50% {
+			opacity: 0.9;
+			transform: translateY(0.5rem);
+		}
+	}
+
+	.hero-heading {
+		animation: hero-fade-up 1s ease-out both;
+	}
+
+	.hero-subtitle {
+		animation: hero-fade-up 1s ease-out 0.2s both;
+	}
+
+	.scroll-indicator {
+		animation: scroll-bounce 2.5s ease-in-out infinite;
+	}
+</style>

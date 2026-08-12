@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+const socialLinks = [
+	{ href: 'https://www.instagram.com/prash_photographs', label: 'Instagram', target: '_blank', rel: 'noopener noreferrer' },
+	{ href: 'mailto:your-email@domain.com', label: 'Email' },
+];
+---
+
+<footer class="border-t border-white/10 bg-[#0a0a0a] px-8 py-16 md:px-16">
+	<div class="mx-auto max-w-7xl flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+
+		<div>
+			<p class="font-display text-base tracking-wide text-white">
+				Prash
+			</p>
+			<p class="mt-4 text-xs tracking-wider uppercase text-white/40">
+				&copy; {year} All rights reserved
+			</p>
+		</div>
+
+		<nav aria-label="Social Links">
+			<ul class="flex gap-6 list-none p-0 m-0">
+				{socialLinks.map(({ href, label, target, rel }) => (
+					<li>
+						<a href={href} class="footer-link" target={target} rel={rel}>{label}</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+
+	</div>
+</footer>
+
+<style>
+	@reference "../styles/global.css";
+	.footer-link {
+		@apply text-sm text-white/60 no-underline transition-colors duration-200 hover:text-white;
+	}
+</style>
