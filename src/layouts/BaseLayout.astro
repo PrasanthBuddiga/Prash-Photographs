@@ -22,5 +22,18 @@ const { title } = Astro.props;
 	<body>
 		<slot />
 		<Lightbox />
+			<script>
+	document.addEventListener('contextmenu', (e) => {
+		if (e.target instanceof HTMLImageElement) {
+			e.preventDefault();
+		}
+	});
+
+	document.addEventListener('dragstart', (e) => {
+		if (e.target instanceof HTMLImageElement) {
+			e.preventDefault();
+		}
+	});
+</script>
 	</body>
 </html>
